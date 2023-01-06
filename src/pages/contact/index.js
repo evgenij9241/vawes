@@ -21,15 +21,19 @@ export default class Index extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    console.log(this.state)
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": form.getAttribute("name"),
-        ...this.state,
+        "name": "testName",
+        "email": "testName@email.com",
+        "message": "wow",
+        "uploaded": "go-go",
       }),
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => console.log('alll is good'))
       .catch((error) => alert(error));
   };
 
